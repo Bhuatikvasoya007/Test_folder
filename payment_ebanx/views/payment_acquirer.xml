@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="acquirer_form_judopay" model="ir.ui.view">
+        <field name="name">acquirer.form.judopay</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name=&quot;acquirer&quot;]" position="after">
+                <group attrs="{'invisible': [('provider', '!=', 'judopay')]}">
+                    <group>
+                        <field name='judopay_id' password="True"/>
+                        <field name='judopay_token' password="True"/>
+                        <field name="judopay_secret" password="True"/>
+                    </group>
+                    <br/>
+                    <h2>Configuration Credentials</h2><br/>
+                    <h3>You will find credentials on login area of judopay.</h3><br/>
+                    <p><strong>JudoId </strong> : Account &gt; settings &gt; Account Summary</p><br/>
+                    <p><strong>Token </strong> : Your Apps &gt; (App name) &gt; Sandbox tokens</p><br/>
+                    <p><strong>Secret </strong> : Your Apps &gt; (App name) &gt; Sandbox tokens</p><br/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="transaction_form_judopay" model="ir.ui.view">
+        <field name="name">acquirer.transaction.form.judopay</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr='//notebook' position='inside'>
+                <page string="Judopay TX Details">
+                    <group>
+                        <field name="judopay_receipt_id"/>
+                        <field name="judopay_reference_key" password="True"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

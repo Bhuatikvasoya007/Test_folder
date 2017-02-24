@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="judopay_acquirer_button">
+        <form t-att-action="tx_url" method="post">
+            <input id="Reference" name="Reference" type="hidden" t-att-value="reference"/>
+            <button type="submit" width="100px"
+                t-att-class="submit_class">
+                <img t-if="not submit_txt" src="/payment_judopay/static/src/img/icon.png"/>
+                <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+            </button>
+        </form>
+    </template>
+</odoo>

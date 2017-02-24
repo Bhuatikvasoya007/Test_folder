@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_acquirer_judopay" model="payment.acquirer">
+            <field name="name">Judopay</field>
+            <field name="image" type="base64" file="payment_judopay/static/src/img/icon.png"/>
+            <field name="provider">judopay</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="environment">test</field>
+            <field name="view_template_id" ref="judopay_acquirer_button"/>
+            <field name='judopay_id'>dummy</field>
+            <field name='judopay_token'>dummy</field>
+            <field name='judopay_secret'>dummy</field>
+            <field name="pre_msg">
+                You will be redirected to the payment page after clicking on the pay now.
+            </field>
+        </record>
+    </data>
+</odoo>
